@@ -6,6 +6,7 @@ class GetHandler(BaseHTTPRequestHandler):
 
     def do_GET(self):
         parsed_path = urlparse.urlparse(self.path)
+
         message_parts = [
                 'CLIENT VALUES:',
                 'client_address=%s (%s)' % (self.client_address,
@@ -25,7 +26,7 @@ class GetHandler(BaseHTTPRequestHandler):
                 ]
         for name, value in sorted(self.headers.items()):
             message_parts.append('%s=%s' % (name, value.rstrip()))
-        message_parts.append('')
+        # message_parts.append('')
         message = '\r\n'.join(message_parts)
         self.send_response(200)
         self.end_headers()

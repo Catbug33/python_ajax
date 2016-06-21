@@ -6,7 +6,8 @@ class BobbyYeahHandler(BaseHTTPRequestHandler):
 
     def do_GET(self):
         parsed_path = urlparse.urlparse(self.path)
-        print parsed_path
+        if parsed_path.query:
+            print parsed_path.query
 
         message_parts = [
                 'CLIENT VALUES:',

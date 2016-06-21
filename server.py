@@ -2,9 +2,9 @@ from BaseHTTPServer import BaseHTTPRequestHandler
 import urlparse
 
 
-class GetHandler(BaseHTTPRequestHandler):
+class BobbyYeahHandler(BaseHTTPRequestHandler):
 
-    def do_GET(self):
+    def do_get(self):
         parsed_path = urlparse.urlparse(self.path)
 
         message_parts = [
@@ -35,6 +35,6 @@ class GetHandler(BaseHTTPRequestHandler):
 
 if __name__ == '__main__':
     from BaseHTTPServer import HTTPServer
-    server = HTTPServer(('0.0.0.0', 8080), GetHandler)
+    server = HTTPServer(('0.0.0.0', 8080), BobbyYeahHandler)
     print 'Starting server, use <Ctrl-C> to stop'
     server.serve_forever()

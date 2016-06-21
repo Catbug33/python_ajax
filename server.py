@@ -4,7 +4,7 @@ import urlparse
 
 class BobbyYeahHandler(BaseHTTPRequestHandler):
 
-    def do_get(self):
+    def do_GET(self):
         parsed_path = urlparse.urlparse(self.path)
 
         message_parts = [
